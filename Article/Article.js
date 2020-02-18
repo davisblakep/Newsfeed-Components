@@ -119,7 +119,7 @@ let newArticle = (titleText, dateText, firstP, secondP, thirdP) => {
 let article = document.createElement('div');
 article.classList.add('article');
 article.classList.add('article-open');
-article.classList.add('article-close');
+
 
 let title = document.createElement('h2');
 title.textContent = titleText;
@@ -127,6 +127,7 @@ title.textContent = titleText;
 let date = document.createElement('p');
 date.classList.add('date');
 date.textContent = dateText;
+
 
 let firstParagraph = document.createElement('p');
 firstParagraph.classList.add('firstParagraph');
@@ -140,12 +141,13 @@ let thirdParagraph = document.createElement('p');
 thirdParagraph.classList.add('thirdParagraph');
 thirdParagraph.textContent = thirdP;
 
+
+
 let expandButton = document.createElement('span');
 expandButton.classList.add('expandButton');
-// expandButton.addEventListener(x => 
-//   article.classList.toggle('article-open'),
-//   article.classList.toggle('article-close'),
-//   )
+expandButton.textContent = '\u25b2';
+expandButton.addEventListener('click', () => article.classList.toggle('article-open'));
+  
 
 
 
