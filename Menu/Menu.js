@@ -43,14 +43,16 @@ let headerDiv = document.querySelector('.header');
 let menu = document.createElement('div');
 menu.classList.add('menu');
 menu.classList.add('menu--open');
-menu.classList.add('menu-button');
+
+// menu.classList.add('menu-button');
+
+let menuButton = document.querySelector('.menu-button')
 
 
-// let mButton = querySelector('.menu-button');
+menuButton.addEventListener('click', ()=> 
+menu.classList.toggle('menu--open'),
 
-menu.addEventListener('click', ()=> 
-menu.classList.toggle('menu'),
-// menu.classList.toggle('menu-button'),
+
 
 );
 
@@ -67,21 +69,6 @@ items.forEach(x => {
   listGroup.appendChild(lister);
 })
 
-// let lister = document.createElement('li');
-
-
-
-
-// let lister = document.createElement('li');
-// menu.appendChild(lister);
-
-// items.forEach(x =>
-//   document.createElement('li').textContent = x
-//   )
-
-// listGroup.appendChild(lister);
-
-//  menu.appendChild(listings);
 
 return menu;
 
