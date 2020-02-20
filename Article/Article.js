@@ -155,7 +155,8 @@ thirdParagraph.textContent = thirdP;
 let expandButton = document.createElement('span');
 expandButton.classList.add('expandButton');
 expandButton.textContent = '\u25b2';
-expandButton.addEventListener('click', () => article.classList.toggle('article-open'));
+expandButton.addEventListener('click', () => article.classList.toggle('article-open'),
+article.classList.toggle('article-open'));
   
 
 
@@ -187,5 +188,12 @@ gsap.from('.expandButton', {
   opacity: 0,
   y: 400,
   duration: 2, 
+})
+
+gsap.from('.article', {
+  opacity: 0,
+  duration: 1, 
+  x: 200,
+  
 })
 

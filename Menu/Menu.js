@@ -44,17 +44,14 @@ let menu = document.createElement('div');
 menu.classList.add('menu');
 menu.classList.add('menu--open');
 
-// menu.classList.add('menu-button');
-
 let menuButton = document.querySelector('.menu-button')
 
 
 menuButton.addEventListener('click', ()=> 
 menu.classList.toggle('menu--open'),
-
-
-
+menu.classList.toggle('menu--open')
 );
+
 
 headerDiv.appendChild(menu);
 
@@ -77,10 +74,9 @@ return menu;
 createMenu(menuItems);
 
 
-// let test40 = document.createElement('li');
-// let test50 = menuItems.forEach((x) => test40.textContent = x)
-
-gsap.from('.menu', {
+gsap.from('.menu-button', {
   opacity: 0,
-  duration: 2, 
+  duration: 4, 
+  x: -200,
 })
+
