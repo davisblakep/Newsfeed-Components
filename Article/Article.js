@@ -183,4 +183,9 @@ data.forEach(x => {
 })
 
 
+gsap.from('.expandButton', {
+  opacity: 0,
+  y: 400,
+  duration: 2, 
+})
 

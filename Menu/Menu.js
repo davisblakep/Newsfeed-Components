@@ -79,3 +79,8 @@ createMenu(menuItems);
 
 // let test40 = document.createElement('li');
 // let test50 = menuItems.forEach((x) => test40.textContent = x)
+
+gsap.from('.menu', {
+  opacity: 0,
+  duration: 2, 
+})
