@@ -33,3 +33,50 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+
+let createMenu = (items) => {
+
+let headerDiv = document.querySelector('.header');
+
+
+let menu = document.createElement('div');
+menu.classList.add('menu');
+menu.classList.add('menu--open');
+
+let menuButton = document.querySelector('.menu-button')
+
+
+menuButton.addEventListener('click', ()=> 
+menu.classList.toggle('menu--open'),
+menu.classList.toggle('menu--open')
+);
+
+
+headerDiv.appendChild(menu);
+
+let listGroup = document.createElement('ul');
+
+menu.appendChild(listGroup);
+
+
+items.forEach(x => {
+  let lister = document.createElement('li');
+  lister.textContent = x;
+  listGroup.appendChild(lister);
+})
+
+
+return menu;
+
+}
+
+createMenu(menuItems);
+
+
+gsap.from('.menu-button', {
+  opacity: 0,
+  duration: 4, 
+  x: -200,
+})
+

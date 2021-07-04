@@ -85,7 +85,16 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+  {
+    title: 'Couch Surfing',
+    date: 'Jan 1st, 2020',
+    firstParagraph: `Projecting surrounded literature yet delightful alteration but bed men. Open are from long why cold. If must snug by upon sang loud left. As me do preference entreaties compliment motionless ye literature. Day behaviour explained law remainder. Produce can cousins account you pasture. Peculiar delicate an pleasant provided do perceive. `,
+
+    secondParagraph: `Blind would equal while oh mr do style. Lain led and fact none. One preferred sportsmen resolving the happiness continued. High at of in loud rich true. Oh conveying do immediate acuteness in he. Equally welcome her set nothing has gravity whether parties. Fertile suppose shyness mr up pointed in staying on respect. `,
+
+    thirdParagraph: `For norland produce age wishing. To figure on it spring season up. Her provision acuteness had excellent two why intention. As called mr needed praise at. Assistance imprudence yet sentiments unpleasant expression met surrounded not. Be at talked ye though secure nearer. `
+  },
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
@@ -112,3 +121,79 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+
+let newArticle = (titleText, dateText, firstP, secondP, thirdP) => {
+
+let article = document.createElement('div');
+article.classList.add('article');
+article.classList.add('article-open');
+
+
+let title = document.createElement('h2');
+title.textContent = titleText;
+
+let date = document.createElement('p');
+date.classList.add('date');
+date.textContent = dateText;
+
+
+let firstParagraph = document.createElement('p');
+firstParagraph.classList.add('firstParagraph');
+firstParagraph.textContent = firstP;
+
+let secondParagraph = document.createElement('p');
+secondParagraph.classList.add('secondParagraph');
+secondParagraph.textContent = secondP;
+
+let thirdParagraph = document.createElement('p');
+thirdParagraph.classList.add('thirdParagraph');
+thirdParagraph.textContent = thirdP;
+
+
+
+let expandButton = document.createElement('span');
+expandButton.classList.add('expandButton');
+expandButton.textContent = '\u25b2';
+expandButton.addEventListener('click', () => article.classList.toggle('article-open'),
+article.classList.toggle('article-open'));
+  
+
+
+
+
+article.appendChild(title);
+article.appendChild(date);
+article.appendChild(firstParagraph);
+article.appendChild(secondParagraph);
+article.appendChild(thirdParagraph);
+article.appendChild(expandButton);
+
+return article;
+
+};
+
+
+
+let articleDiv = document.querySelector('.articles');
+
+
+data.forEach(x => {
+ let articleCreate = newArticle(x.title, x.date, x.firstParagraph, x.secondParagraph, x.thirdParagraph);
+ articleDiv.appendChild(articleCreate);
+})
+
+
+gsap.from('.expandButton', {
+  opacity: 0,
+  y: 400,
+  duration: 2, 
+})
+
+gsap.from('.article', {
+  opacity: 0,
+  duration: 1, 
+  x: 200,
+  
+})
+
